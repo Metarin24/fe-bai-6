@@ -1,0 +1,146 @@
+*{
+    box-sizing: border-box;
+}
+
+
+/* First box float and clear */
+.element-parent{
+    border: 5px solid red;
+    margin: 50px;
+    left: 0;
+    top: 0;
+}
+.element-child{
+    color: green;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}
+.element-a{
+    background-color: aqua;
+    height: 100px;
+    float: left;
+}
+.element-b{
+    background-color: yellowgreen;
+    height: 200px;
+    float: right;
+}
+.element-c{
+    background-color:pink;
+    height: 100px;
+    float: right;
+}
+.clear-both{
+    clear: both;
+}
+
+
+/* Example */
+.box{
+    background-color: gray;
+    color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.sidebar-1{
+    float: left;
+    margin-right: 10px;
+    width: 20%;
+}
+.content{
+    float: left;
+    margin-right: 10px;
+    width: calc(60% - 20px);
+}
+.sidebar-2{
+    float: right;
+    width: 20%;
+}
+
+
+/* ATT Example */
+a[title ~= "website"]{
+    background-color: aqua;
+}
+/* a[target = "_blank"]{
+    background-color: yellow;
+} */
+
+p[class |= "top"]{
+    background-color: aqua;
+}
+
+
+/* Units */
+.boxparent{
+    background-color: brown;
+    height:700;
+    width: 200px;
+}
+/* .boxchild{
+    background-color: beige;
+    height:50%;
+    width: 50%;
+} */
+
+html{
+    font-size: 16px;
+}
+.boxchild{
+    background-color: beige;
+    height:10rem;
+    width: 3rem;   
+    /* 3 x 16 font-size html*/
+} 
+
+
+/* Tinh dac hieu cua CSS */
+h2 { color: red/* !important */; } /* 0-0-0-1 */
+h2.title  { color: blue; } /* 0-0-1-1 => 11 > 1 chuyển xanh*/
+div h2.title  { color: orange; } /* 0-0-1-2 => 12 > 11 chuyển cam*/
+.head h2.title  {color: green; } /* 0-0-2-1 => 21 chuyển xanh */
+div.head h2.title  {color: gray; } /* 0-0-2-2 */
+div.head h2.title:last-child  {color: yellow; } /* 0-0-3-2 => 32 */
+#main div.head h2.title  {color: pink; } /* 0-1-2-2 => 122*/
+#main div#head h2.title  {color: purple; } /* 0-2-1-2 => 212*/
+#main div#head h2.title::first-letter  {color: red; } /* 0-2-3-2 => 213 */
+#main div#head h2::first-letter  {color: yellow; } /* 0-2-0-3 */
+/* Vậy chỉ ăn 212 và 213 */
+
+/* Hàm toán học */
+.box-parent{
+    background: orange;
+    width: 400px;
+    height: 300px;
+    position: relative;
+}
+.box-child{
+    background: black;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left: calc(50% - 100px);
+    top: calc(50% - 50px);
+}
+
+
+/* attr() */
+.new::before{
+    content: attr(test);
+}
+
+
+/* Variable */
+:root{
+    --global-color: red;
+}
+h1{
+    --local-color : #ca0000;
+    color: var(--local-color);
+}
+p{
+    background-color: var(--global-color);
+}

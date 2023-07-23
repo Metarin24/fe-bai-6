@@ -1,0 +1,16 @@
+.box{
+    background: orange;
+    font-size: 30px;
+    margin-bottom: 50px;
+    display: inline-block;
+    padding: 30px;
+    border: 10px solid #000;
+}
+.box-1{
+    width: 200px;
+    box-sizing: content-box;
+}
+.box-2{
+    width: 200px;
+    box-sizing: border-box;
+}
